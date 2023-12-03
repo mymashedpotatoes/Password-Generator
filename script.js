@@ -9,6 +9,7 @@ function writePassword() {
     var passwordText = document.querySelector("#password");
 
     passwordText.value = newpassword;
+    choicesArray = [];
   }
 }
 
@@ -41,26 +42,31 @@ var userInput = function() {
     if (userLowercase) {
       choicesArray = choicesArray.concat(lowercaseArray);
       console.log(userLowercase)
-    }
+    } 
   var userNumbers = window.confirm("Would you like to add numbers to the password?");
     if (userNumbers) {
       choicesArray = choicesArray.concat(numbersArray);
       console.log(userNumbers)
-    }
+    } 
   var userSpecial = window.confirm("Would you like to add special characters to the password?");
     if (userSpecial) {
       choicesArray = choicesArray.concat(specialArray);
       console.log(userSpecial)
-    }
+    } 
+  if (!userUppercase + !userLowercase + !userNumbers + !userSpecial) {
+    choicesArray = [];
+    alert("Must choose at least 1 character type.")
+  }
   return true;
+  
 }
 
 function generatePassword() {
   var password = "";
   for (var i = 0; i < passwordLength; i++) {
-    var random = Math.floor(Math.random * choicesArray.length)
+    var random = Math.floor(Math.random() * choicesArray.length)
     password = password + choicesArray[random];
-    console.log(password)
+    console.log(random)
   };
   return password;
 } 

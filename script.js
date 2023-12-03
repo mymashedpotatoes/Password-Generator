@@ -29,31 +29,32 @@ passwordLength = "";
 //prompts for user input
 var userInput = function() {
   passwordLength = window.prompt("How many characters would you like the password to be? (8-128 characters)");
+  //if password length is not a number or not entered alerts
     if (passwordLength < 8 || passwordLength > 128) {
-      alert("Character length must be between 8 and 128 characters. Please try again.")
+      alert("Character length must be between 8 and 128 characters. Please try again.");
       choicesArray = [];
-      console.log(passwordLength)
+      console.log(passwordLength);
       return " "
     }
   var userUppercase = window.confirm("Would you like to add uppercase letters to the password?");
     if (userUppercase) {
       choicesArray = choicesArray.concat(uppercaseArray);
-      console.log(userUppercase)
+      console.log(userUppercase);
        }
   var userLowercase = window.confirm("Would you like to add lowercase letters to the password?");
     if (userLowercase) {
       choicesArray = choicesArray.concat(lowercaseArray);
-      console.log(userLowercase)
+      console.log(userLowercase);
     } 
   var userNumbers = window.confirm("Would you like to add numbers to the password?");
     if (userNumbers) {
       choicesArray = choicesArray.concat(numbersArray);
-      console.log(userNumbers)
+      console.log(userNumbers);
     } 
   var userSpecial = window.confirm("Would you like to add special characters to the password?");
     if (userSpecial) {
       choicesArray = choicesArray.concat(specialArray);
-      console.log(userSpecial)
+      console.log(userSpecial);
     } 
     //if all choices are cancelled then will alert
   if (!userUppercase && !userLowercase && !userNumbers && !userSpecial) {
@@ -69,7 +70,7 @@ function generatePassword() {
   for (var i = 0; i < passwordLength; i++) {
     var random = Math.floor(Math.random() * choicesArray.length)
     password = password + choicesArray[random];
-    console.log(random)
+    console.log(random);
   };
   return password;
 } 

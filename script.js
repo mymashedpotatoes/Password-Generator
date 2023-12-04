@@ -59,7 +59,7 @@ var userInput = function() {
     //if all choices are cancelled then will alert
   if (!userUppercase && !userLowercase && !userNumbers && !userSpecial) {
     alert("Must choose at least 1 character type.");
-    return " "
+    return undefined;
   }
   return " ";
   
@@ -68,7 +68,7 @@ var userInput = function() {
 function generatePassword() {
   var password = "";
   for (var i = 0; i < passwordLength; i++) {
-    var random = Math.floor(Math.random() * choicesArray.length)
+    var random = Math.floor(Math.random() * choicesArray.length);
     password = password + choicesArray[random];
     console.log(random);
   };
